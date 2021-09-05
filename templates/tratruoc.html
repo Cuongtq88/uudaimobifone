@@ -1,0 +1,96 @@
+{% include "header.html" %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Trả Trước</title>
+  <link href="{{ url_for('static', filename='css/styles.css')}}" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+</head>
+
+<body>
+<div class="container ">
+  <form class="timso" action="" method="post">
+      <div class="col-lg-12">
+          <label for=""class="chonsim">Tìm Theo Số</label>
+          <input type="text" size="4" name="socantim" value="{{socantim}}" class="btn-timso">
+
+    <label for="cars" class="chonsim">Chọn Dạng Số</label>
+
+    <select name="cars" id="cars" >
+      <option  value="{{dangso}}">{{ dangso }}</option>
+      <option value="All">All</option>
+      <option value="Sảnh 3 Con">Sảnh 3 con</option>
+      <option value="Tam Cô">Tam Cô</option>
+      <option value="Sảnh 4 Con">Sảnh 4 con</option>
+      <option value="Tứ Quý">Tứ Quý</option>
+      <option value="ABAB">ABAB</option>
+    </select>
+      <button type="submit" class="btn btn-success">Tìm Kiếm</button><br>
+  </div>
+  </form>
+  <div class="bang-tt">
+    <table class="table table-sm table-bordered table-striped">
+      <thead>
+        <tr>
+          <th scope="col-3">STT</th>
+          <th scope="col-3">Số Thuê Bao</th>
+          <th scope="col-3">Giá</th>
+          <th scope="col-3">Đặt Mua</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for sim in all_sim.items %}
+        <tr>
+          <th scope="row">{{sim.id}}</th>
+          <td class="stb">{{ sim.sothuebao }}</td>
+          <td class="price">{{ sim.gia }}</td>
+          <td><a href="{{url_for('show_tt', stb=sim.sothuebao, gia = sim.gia) }}"><button type="submit" class="btn btn-primary btn-sm">Đặt Mua </button></a></td>
+        </tr>
+
+      {% endfor %}
+
+      </tbody>
+    </table>
+    <form>
+    <nav aria-label="Page navigation example">
+  <ul class="pagination">
+    {% if all_sim.has_prev %}
+      <li class="page-item"><a class="page-link" href="{{ url_for('tratruoc', page=all_sim.prev_num, dangso=dangso, socantim=socantim) }}">Previous</a></li>
+    {% else %}
+      <li class="page-item"><a class="page-link" href="">Previous</a></li>
+    {% endif %}
+    {% for page in all_sim.iter_pages(left_edge=3, right_edge=3) %}
+     {% if page %}
+        {% if page==all_sim.page %}
+          <li class="page-item active" ><a class="page-link" href="{{ url_for('tratruoc', page=page, dangso=dangso, socantim=socantim) }}" >{{ page }}</a></li>
+        {% else %}
+          <li class="page-item" ><a class="page-link" href="{{ url_for('tratruoc', page=page, dangso=dangso, socantim=socantim) }}" >{{ page }}</a></li>
+        {% endif %}
+      {% else %}
+          <li class="page-item disabled" ><a class="page-link" href="" >...</a></li>
+    {% endif %}
+     {% endfor %}
+
+    {% if all_sim.has_next %}
+      <li class="page-item"><a class="page-link" href="{{ url_for('tratruoc', page=all_sim.next_num, dangso=dangso, socantim=socantim) }}">Next</a></li>
+    {% else %}
+      <li class="page-item"><a class="page-link" href="">Next</a></li>
+    {% endif %}
+  </ul>
+</nav>
+      </form>
+
+  </div>
+
+
+</div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+</body>
+{% include "footer.html" %}
+</html>
+

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% import "bootstrap/wtf.html" as wtf %}
+{% include "header.html" %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link href="{{ url_for('static', filename='css/styles.css')}}" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+  <!-- Font Awesome -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+  <link href="https: //fonts.googleapis.com/css2? family = Merriweather & display = swap " rel=" stylesheet ">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container bangdathang">
+        <h2>Thông tin đặt hàng</h2>
+        <p>Bạn đặt mua số <span class="stb">{{ stb}}</span> với giá <span class="stb">{{gia}}</span>  </p>
+        <form class="" action="{{ url_for('show_tt', stb = stb, gia= gia) }}" method="POST">
+    <div class="row dongdathang">
+      <div class="col-lg-4 cotdathang">
+         {{ wtf.quick_form(form) }}
+          <button type="submit" class="btn btn-primary" value="dathang">Đặt Hàng</button>
+          </form>
+      </div>
+    </div>
+  </div>
+</body>
+{% include "footer.html" %}
+</html>

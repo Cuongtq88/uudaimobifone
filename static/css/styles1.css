@@ -1,0 +1,88 @@
+.goicuoc{
+  float: left;
+ width: 25%;
+    height: 10%;
+ padding: 0 10px;
+  text-align: center;
+  margin: 20px;
+  border: ridge lightblue;
+   border-width: 6px;
+   border-radius: 20px;
+   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+   background-color: #E6EBEB;
+}
+
+@media screen and (max-width: 1200px) {
+  .goicuoc {
+    width: 40%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .goicuoc {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+.vungchua-goicuoc:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.tengoi{
+  color: blue;
+  font-size: 1.5rem;
+   font-weight:bolder;
+
+}
+.giagoi{
+  color: blue;
+  font-size: 1rem;
+   font-weight:bold;
+}
+.noidunggoi{
+  text-align: left;
+}
+.title-goi{
+  background-color: #ECF244;
+  border-radius: 20px;
+  padding: 5px;
+}
+.uudaigoi{
+  font-size: 1.5rem;
+  font-style: bold;
+  font-weight: 900;
+  padding: 10px 0 10px 0;
+  color: #E6123D;
+}
+.icon-check{
+  color: blue;
+}
+.datmua{
+  margin-top: 10px;
+}
+.vungchua-goicuoc{
+  display: flex;
+  position: relative;
+  padding-left: 15%;
+  padding-top: 1%;
+}
+.vung-paganation{
+    padding-top: 5%;
+}
+.timgoi{
+  color: blue;
+  font-weight: bolder;
+  font-size: 1rem;
+}
+.chongoi{
+  padding-right: 20px;
+  font-size: 1.5rem;
+
+}
+
+.btn-datmua{
+margin-bottom: 10px;
+}

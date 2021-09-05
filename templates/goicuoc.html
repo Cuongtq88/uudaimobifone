@@ -1,0 +1,92 @@
+
+<html lang="en">
+{% include "header.html" %}
+<head>
+    <meta charset="UTF-8">
+     <link href="{{ url_for('static', filename='css/styles1.css')}}" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>Title</title>
+</head>
+<body>
+<div class="container ">
+ <form class="timgoi" action="{{ url_for('goicuoc') }}" method="post">
+      <div class="col-lg-12 vung-tracuugoi">
+
+          <label for=""class="chongoi">Tìm Gói</label>
+          <input type="text" size="4" name="goicantim" value="" class="btn-timso">
+
+    <label for="loaigoi" class="chongoi">Chọn Loại Gói</label>
+
+    <select name="loaigoi" id="loaigoi">
+      <option  value="{{ loaigoi }}">{{ loaigoi }}</option>
+      <option value="Phổ Biến">Phổ Biến</option>
+      <option value="Gói Dài Kỳ">Gói Dài Kỳ</option>
+      <option value="Gói Tháng">Gói Tháng</option>
+      <option value="Gói Ngày">Gói Ngày</option>
+
+    </select>
+      <button type="submit" class="btn btn-success">Tìm Kiếm</button><br>
+  </div>
+  </form>
+    </div>
+    <div class="row vungchua-goicuoc">
+        {% for goi in all_goi.items %}
+      <div class="goicuoc">
+
+        <div class="title-goi">
+          <span class="tengoi">{{ goi.tengoi }}</span><br>
+          <span class="giagoi">{{ goi.gia }}/ Tháng</span><br>
+        </div>
+        <div class="uudaigoi">
+          <span >{{ goi.uudaichinh }}</span><br>
+        </div>
+        <div class="noidunggoi">
+          <span><i class="fas fa-check icon-check"></i> {{ goi.uudaidata }}</span><br>
+            {% if goi.uudaithoai  %}
+          <span><i class="fas fa-check icon-check"></i> {{ goi.uudaithoai }}</span><br>
+            {% endif %}
+        </div>
+        <div class="datmua">
+          <button type="submit" name="button" class="btn btn-success btn-datmua">Đặt Mua</button>
+        </div>
+      </div>
+        {% endfor %}
+    </div>
+<form>
+    <div class="vung-paganation">
+    <nav aria-label="Page navigation example">
+  <ul class="pagination">
+    {% if all_goi.has_prev %}
+      <li class="page-item"><a class="page-link" href="{{ url_for('goicuoc', page=all_goi.prev_num, loaigoi=loaigoi) }}">Previous</a></li>
+    {% else %}
+      <li class="page-item"><a class="page-link" href="">Previous</a></li>
+    {% endif %}
+    {% for page in all_goi.iter_pages(left_edge=3, right_edge=3) %}
+     {% if page %}
+        {% if page==all_goi.page %}
+          <li class="page-item active" ><a class="page-link" href="{{ url_for('goicuoc', page=page, loaigoi=loaigoi) }}" >{{ page }}</a></li>
+        {% else %}
+          <li class="page-item" ><a class="page-link" href="{{ url_for('goicuoc', page=page, loaigoi=loaigoi) }}" >{{ page }}</a></li>
+        {% endif %}
+      {% else %}
+          <li class="page-item disabled" ><a class="page-link" href="" >...</a></li>
+    {% endif %}
+     {% endfor %}
+
+    {% if all_goi.has_next %}
+      <li class="page-item"><a class="page-link" href="{{ url_for('goicuoc', page=all_goi.next_num, loaigoi=loaigoi) }}">Next</a></li>
+    {% else %}
+      <li class="page-item"><a class="page-link" href="">Next</a></li>
+    {% endif %}
+  </ul>
+</nav>
+        </div>
+    </form>
+  </body>
+ <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+
+</html>
+{% include "footer.html" %}

@@ -1,0 +1,184 @@
+
+body{
+  font-size: 16px;
+  font-family: 'Merriweather', serif;
+  position: relative;
+  padding-left: 0px;
+
+}
+.title{
+  background-color: #170055;
+  padding-bottom: 30px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+}
+h1{
+  color: #fff;
+  font-family: 'Merriweather', serif;
+
+}
+.noidung{
+  color: #FFE459;
+  font-weight: bolder;
+  font-size: 2rem;
+
+}
+.bang-tt{
+  width: 500px;
+  margin: auto;
+  margin-top: 1%;
+}
+.row{
+  margin: auto;
+  width: 100% ;
+}
+#navbarText{
+  font-size: 1.5rem;
+
+}
+.nav-link{
+  margin: 0px 10px;
+  color: #353535;
+
+}
+.navbar{
+  background-color: #ffca44;
+
+}
+.stb{
+  color: red;
+  font-weight: bold;
+}
+.price{
+  color: green;
+  font-weight:bolder;
+}
+
+.footer{
+  position: relative;
+  background-color: #353535;
+  color: #fff;
+  width: 100%;
+  margin-top: 30%;
+  height: 250px;
+  padding: 20px 20px;
+}
+
+.timso{
+  color: blue;
+  font-weight: bolder;
+  font-size: 1rem;
+}
+
+.chonsim{
+  padding-right: 20px;
+  font-size: 1.5rem;
+}
+#cars{
+  margin-right: 20px;
+  padding-right: 40px;
+}
+.pagination{
+  width: 100px;
+  margin-left: 36%;
+}
+.container{
+  position: relative;
+  text-align: center;
+  margin-top: 2%;
+}
+.middle{
+  position: relative;
+  top:0px;
+}
+.mf150{
+  text-align: center;
+  padding: 3% 7%;
+}
+.icon-box{
+  color: red;
+  margin-top: 3%;
+}
+h3{
+  font-size: 3rem;
+  line-height: 2;
+}
+.goi{
+  font-size: 3rem;
+  font-weight: bolder;
+  color: red;
+  font-family: 'Merriweather', serif;
+  width: 100%;
+}
+p{
+  color: grey;
+  font-size: 1.5rem;
+}
+.d-block{
+  height: 400px;
+}
+.bangchuyen{
+  width: 90%;
+
+  margin: 1% auto;
+}
+.dropdown{
+	position: relative;
+	display: inline-block;
+
+}
+.dropdown-item{
+  font-size: 1.5rem;
+}
+.dropdown:hover .dropdown-menu{
+	display: block;
+}
+
+.dongdathang{
+  background-color: #F3F0D7;
+
+
+}
+.cotdathang{
+  padding: 2% 20%;
+  margin: 1% auto;
+
+}
+.stb{
+   color: red;
+  font-weight: bold;
+}
+
+.banggoicuoc{
+  position:fixed;
+  width:30%;
+  top: 52%;
+  left:0px;
+  text-align: center;
+  margin-left: 2%;
+  padding-right: 3%;
+}
+.title-goicuoc{
+  color: white;
+}
+@media screen and (max-width: 1200px) {
+  .banggoicuoc{
+    position: relative;
+    width:100%;
+    top: 5%;
+
+    text-align: center;
+    margin: auto;
+    padding-right: 0;
+  }
+#navbar{
+position:fixed;
+top: 0px;
+}
+
+
+
+
+
+
+
